@@ -7,6 +7,7 @@ from langchain_community.document_loaders import (
     PyMuPDFLoader,
     TextLoader,
     BSHTMLLoader,
+    Docx2txtLoader,
 )
 
 class DocumentLoader:
@@ -21,6 +22,7 @@ class DocumentLoader:
         ".md",
         ".html",
         ".htm",
+	".docx",
     }
 
     def load(self, file_path: str) -> List[Document]:
@@ -42,6 +44,9 @@ class DocumentLoader:
 
         elif suffix in [".txt", ".md"]:
             loader = TextLoader(str(path), encoding="utf-8")
+
+	elif suffix == ".docx":
+    	    loader = Docx2txtLoader(str(path))
 
         else:
             loader = BSHTMLLoader(str(path))
