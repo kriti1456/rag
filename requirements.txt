@@ -8,8 +8,7 @@ python-dotenv
 # ==========================
 # LLM
 # ==========================
-google-generativeai
-google-genai
+
 openai 
 
 # ==========================

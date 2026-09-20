@@ -22,7 +22,7 @@ class DocumentLoader:
         ".md",
         ".html",
         ".htm",
-	".docx",
+	    ".docx",
     }
 
     def load(self, file_path: str) -> List[Document]:

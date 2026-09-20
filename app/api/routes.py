@@ -1,5 +1,6 @@
 from pathlib import Path
 import shutil
+import os
 
 from fastapi import (
     APIRouter,
@@ -25,7 +26,12 @@ router = APIRouter(
 # Upload Directory
 # --------------------------------------------------
 
-UPLOAD_DIR = Path("uploads")
+
+
+UPLOAD_DIR = Path(
+    os.getenv("UPLOAD_DIR", "uploads")
+)
+
 UPLOAD_DIR.mkdir(
     exist_ok=True,
 )
