@@ -15,7 +15,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",          # Vite dev server
-        "https://northbridge-ai-liart.vercel.app",
+        "https://rag-frontend-project.vercel.app/",
     ],
     allow_credentials=True,
     allow_methods=["*"],
