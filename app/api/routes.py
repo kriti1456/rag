@@ -151,33 +151,25 @@ async def upload_document(
 # --------------------------------------------------
 
 @router.post("/ingest")
-async def ingest(
-    request: IngestRequest,
-):
-
+def ingest_document(request: IngestRequest):
     try:
-
         chunks = get_rag().ingest(
             document_path=request.document_path,
             strategy=request.strategy,
         )
 
         return {
-            "message": "Document indexed successfully.",
-            "chunks": (
-                len(chunks)
-                if chunks is not None
-                else None
-            ),
+            "message": "Document ingested successfully.",
+            "chunks_indexed": len(chunks),
         }
 
     except Exception as e:
+        import traceback
 
-        raise HTTPException(
-            status_code=500,
-            detail=str(e),
-        )
+        print("INGEST ERROR:")
+        traceback.print_exc()
 
+        raise
 
 # --------------------------------------------------
 # Documents
