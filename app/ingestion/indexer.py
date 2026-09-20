@@ -154,6 +154,8 @@ class Indexer:
             for chunk in document_chunks
         ]
 
+        print("BEFORE CHROMA ADD")
+
         self.vector_store.add_documents(
             ids=[
                 chunk.id
@@ -164,6 +166,9 @@ class Indexer:
             metadatas=metadata,
         )
 
+        print("AFTER CHROMA ADD")
+        print("BEFORE SPARSE ADD")
+
         self.sparse_index.add_documents(
             ids=[
                 chunk.id
@@ -172,6 +177,8 @@ class Indexer:
             documents=texts,
             metadatas=metadata,
         )
+        print("AFTER SPARSE ADD")
+        
 
         elapsed = time.time() - start
 
