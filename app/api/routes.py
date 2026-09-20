@@ -79,11 +79,19 @@ async def ask(request: AskRequest):
             ),
             sources=[
                 SourceResponse(
+                    id=chunk.id,
                     title=chunk.metadata.get(
                         "source",
                         "Unknown Document",
                     ),
                     score=chunk.score,
+                    rerank_score=chunk.rerank_score,
+                    retriever=chunk.retriever,
+                    page=chunk.metadata.get("page"),
+                    section=chunk.metadata.get("section"),
+                    chunk_index=chunk.metadata.get("chunk_index"),
+                    strategy=chunk.metadata.get("strategy"),
+                    char_count=chunk.metadata.get("char_count"),
                 )
                 for chunk in result.retrieved_chunks
             ],
@@ -118,19 +126,10 @@ async def upload_document(
                 buffer,
             )
 
-        chunks = get_rag().ingest(
-            document_path=str(destination),
-            strategy="recursive",
-        )
-
         return {
-            "message": "Document indexed successfully.",
+            "message": "Document uploaded successfully.",
             "filename": file.filename,
-            "chunks": (
-                len(chunks)
-                if chunks is not None
-                else None
-            ),
+            "document_path": str(destination),
         }
 
     except Exception as e:

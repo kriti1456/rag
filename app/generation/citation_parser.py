@@ -28,8 +28,8 @@ class CitationParser:
         claims = []
 
         sentences = re.split(
-            r"(?<=[.!?])\s+",
-            answer.strip(),
+        r"(?<=[.!?])\s+(?!\[)",
+        answer.strip(),
         )
 
         for sentence in sentences:

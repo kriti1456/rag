@@ -13,8 +13,16 @@ class AskRequest(BaseModel):
     )
 
 class SourceResponse(BaseModel):
+    id: str
     title: str
     score: float | None = None
+    rerank_score: float | None = None
+    retriever: str | None = None
+    page: int | None = None
+    section: str | None = None
+    chunk_index: int | None = None
+    strategy: str | None = None
+    char_count: int | None = None
 
 
 class AskResponse(BaseModel):

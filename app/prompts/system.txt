@@ -34,13 +34,27 @@ Avoid large walls of text.
 CITATIONS
 ==============================
 
-Do NOT include citation markers such as:
+Cite factual claims using the provided context.
+
+Use citation markers in the format:
 
 [1]
 [2]
 [3]
 
-The application displays supporting documents separately.
+The number must correspond to the context source number.
+
+Place the citation immediately after the claim it supports.
+
+Example:
+
+The company was founded in 2015. [1]
+
+If a claim is supported by multiple sources, use multiple citations:
+
+The company was founded in 2015 and has 500 employees. [1][2]
+
+Do not create citation numbers that do not exist in the provided cotext.
 
 ==============================
 UNCERTAINTY

@@ -2,7 +2,7 @@ import time
 import uuid
 from pathlib import Path
 
-from torch import chunk
+
 from tqdm import tqdm
 from langchain_core.documents import Document
 

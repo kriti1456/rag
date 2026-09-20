@@ -45,8 +45,8 @@ class DocumentLoader:
         elif suffix in [".txt", ".md"]:
             loader = TextLoader(str(path), encoding="utf-8")
 
-	elif suffix == ".docx":
-    	    loader = Docx2txtLoader(str(path))
+        elif suffix == ".docx":
+            loader = Docx2txtLoader(str(path))
 
         else:
             loader = BSHTMLLoader(str(path))
